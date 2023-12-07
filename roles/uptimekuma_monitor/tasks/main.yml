@@ -1,0 +1,9 @@
+- name: Login with credentials and create a monitor
+  lucasheld.uptime_kuma.monitor:
+    api_url: http://127.0.0.1:3001
+    api_username: AndySu
+    api_password: Welkom01!
+    name: Google
+    type: http
+    url: https://google.com
+    state: present
