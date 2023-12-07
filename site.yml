@@ -1,0 +1,5 @@
+- hosts: uptimekuma
+  gather_facts: true
+  become: true
+  roles:
+  - { role: uptimekuma_monitor, tags: [ 'monitor']}
