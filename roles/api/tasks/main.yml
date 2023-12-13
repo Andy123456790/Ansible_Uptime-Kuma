@@ -1,0 +1,3 @@
+- name: install uptime-kuma-api python package
+  ansible.builtin.pip:
+    name: uptime-kuma-api==1.2.1
