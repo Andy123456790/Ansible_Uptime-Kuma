@@ -1,0 +1,12 @@
+- name: Creates a notification for the monitors
+  lucasheld.uptime_kuma.notification:
+    api_url: http://127.0.0.1:3001
+    api_username: "{{ kuma_username }}"
+    api_password: "{{ kuma_password }}"
+    name: down
+    state: present
+    type: slack
+    slackchannel: uptime-kuma-test
+    slackchannelnotify: yes
+    applyExisting: yes
+    slackwebhookURL: https://hooks.slack.com/services/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
