@@ -1,0 +1,18 @@
+monitor:
+  Google:
+    type: "http"
+    url: "https://google.com"
+    state: present
+    cert: yes
+  NU.nl:
+    type: "http"
+    url: "https://nu.nl"
+    state: present
+    cert: yes
+  Facebook:
+    type: "http"
+    url: "https://facebook.com"
+    state: present
+    cert: yes
+
+    
