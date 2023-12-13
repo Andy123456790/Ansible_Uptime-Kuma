@@ -1,9 +1,21 @@
-- name: Login with credentials and create a monitor
+- name: Include de vars
+  ansible.builtin.include_vars:
+    file: host_vars/uptimekuma/monitor.yml
+
+- name: Specify the initial username and password
+  lucasheld.uptime_kuma.setup:
+    api_url: http://127.0.0.1:3001
+    api_username: "{{ kuma_username }}"
+    api_password: "{{ kuma_password }}"
+
+- name: Login with credentials and create/update/delete the monitors
   lucasheld.uptime_kuma.monitor:
     api_url: http://127.0.0.1:3001
-    api_username: AndySu
-    api_password: Welkom01!
-    name: Google
-    type: http
-    url: https://google.com
-    state: present
+    api_username: "{{ kuma_username }}"
+    api_password: "{{ kuma_password }}"
+    name: "{{ item.key }}"    #name of the monitoring
+    type: "{{ item.value.type }}"   #the type of monitoring. http,dns enz.
+    url: "{{ item.value.url }}"   #the link to a website you want to monitor
+    state: "{{ item.value.state }}"  
+    expiryNotification: "{{ item.value.cert }}"
+  loop: "{{ lookup('dict', monitor) }}"
