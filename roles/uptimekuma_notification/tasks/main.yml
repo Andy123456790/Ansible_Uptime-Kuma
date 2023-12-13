@@ -9,4 +9,4 @@
     slackchannel: uptime-kuma-test
     slackchannelnotify: yes
     applyExisting: yes
-    slackwebhookURL: https://hooks.slack.com/services/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
+    slackwebhookURL:  #paste here your slack webhook URL
